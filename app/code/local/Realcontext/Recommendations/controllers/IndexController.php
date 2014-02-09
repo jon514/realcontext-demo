@@ -15,7 +15,7 @@ class Realcontext_Recommendations_IndexController extends Mage_Core_Controller_F
 {
     public function indexAction()
     {
-		die("hello world");
+    	
     	$this->loadLayout();
 		$this->renderLayout();
 	

@@ -1,6 +1,19 @@
+<div>You're Curated Shop</div>
 <ul>
-	<li>Jon</li>
-	<li>Marc</li>
-	<li>Vanessa</li>
-	<li>David</li>
+
+<?php 
+
+$products = $this->getRecommendations();
+
+foreach($products as $product_placeholder) {
+	$product = Mage::getModel('catalog/product')->load($product_placeholder->getId())
+?>
+
+	<li>
+		<div><?php echo $product->getName()?></div>
+		<div><?php echo $product->getImage()?></div>
+	</li>
+
+<?php } ?>
+
 </ul>

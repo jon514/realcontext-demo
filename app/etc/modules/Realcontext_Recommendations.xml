@@ -17,7 +17,7 @@
     <modules>
         <Realcontext_Recommendations>
             <active>true</active>
-            <codePool>community</codePool>
+            <codePool>local</codePool>
             <depends>
                 <Mage_Core/>
                 <PiwikMage_PiwikAnalytics/>

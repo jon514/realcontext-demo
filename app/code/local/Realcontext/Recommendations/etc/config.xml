@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Piwik Extension for Magento created by Adrian Speyer
+ * Get Piwik at http://www.piwik.org - Open source web analytics
+ *
+ * @category    PiwikMage
+ * @package     PiwikMage_PiwikAnalytics
+ * @copyright   Copyright (c) 2012 Adrian Speyer. (http://www.adrianspeyer.com)
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
+ *
+ */
+-->
+<config>
+    <modules>
+        <Realcontext_Recommendations>
+            <version>1.0.0.0</version>
+        </Realcontext_Recommendations>
+    </modules>
+    <global>
+        <models>
+            <realcontext>
+                <class>Realcontext_Recommendations_Model</class>
+            </realcontext>
+        </models>
+        <blocks>
+            <realcontext>
+                <class>Realcontext_Recommendations_Block</class>
+            </realcontext>
+        </blocks>
+        <helpers>
+            <realcontext>
+                <class>Realcontext_Recommendations_Helper</class>
+            </realcontext>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <realcontext>
+                    <files>
+                        <default>Realcontext.csv</default>
+                    </files>
+                </realcontext>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <realcontext>
+                    <file>realcontext.xml</file>
+                </realcontext>
+            </updates>
+        </layout>
+        <routers>
+            <realcontext>
+                <use>standard</use>
+                <args>
+                    <module>Realcontext_Recommendations</module>
+                    <frontName>realcontext</frontName>
+                </args>
+            </realcontext>
+        </routers>
+    </frontend>
+</config>

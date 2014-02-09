@@ -11,7 +11,7 @@
  *
  */
 
-class Realcontext_IndexController extends Mage_Core_Controller_Front_Action
+class Realcontext_Recommendations_IndexController extends Mage_Core_Controller_Front_Action
 {
     public function indexAction()
     {

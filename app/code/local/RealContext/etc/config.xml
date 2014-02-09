@@ -14,9 +14,9 @@
 -->
 <config>
     <modules>
-        <Realcontext>
+        <Realcontextt>
             <version>1.0.0.0</version>
-        </Realcontext>
+        </Realcontextt>
     </modules>
     <global>
         <!-- 
@@ -40,11 +40,11 @@
     <frontend>
         <translate>
             <modules>
-                <Realcontext>
+                <realcontextt>
                     <files>
                         <default>Realcontext.csv</default>
                     </files>
-                </Realcontext>
+                </realcontextt>
             </modules>
         </translate>
         <events>
@@ -69,19 +69,19 @@
         </events>
         <layout>
             <updates>
-                <realcontext>
+                <realcontextt>
                     <file>realcontext.xml</file>
-                </realcontext>
+                </realcontextt>
             </updates>
         </layout>
         <routers>
-            <realcontext>
+            <realcontextt>
                 <use>standard</use>
                 <args>
-                    <module>Realcontext</module>
+                    <module>Realcontextt</module>
                     <frontName>realcontext</frontName>
                 </args>
-            </realcontext>
+            </realcontextt>
         </routers>
     </frontend>
 </config>

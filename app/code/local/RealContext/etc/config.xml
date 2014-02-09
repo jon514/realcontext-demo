@@ -74,5 +74,14 @@
                 </realcontext>
             </updates>
         </layout>
+        <routers>
+            <realcontext>
+                <use>standard</use>
+                <args>
+                    <module>RealContext</module>
+                    <frontName>realcontext</frontName>
+                </args>
+            </realcontext>
+        </routers>
     </frontend>
 </config>

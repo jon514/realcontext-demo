@@ -27,6 +27,8 @@
 
 -->
 <layout version="0.1.0">
+<remove name="head" />
+<remove name="footer" />
 
 	<realcontext_index_index>
 		<label>Curated Shop</label>

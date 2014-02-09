@@ -27,12 +27,10 @@
 
 -->
 <layout version="0.1.0">
-<remove name="head" />
-<remove name="footer" />
-
-	<realcontext_index_index>
-		<label>Curated Shop</label>
-		<block type="realcontext/recommendations" name="recommendations" output="toHtml" template="realcontext/recommendations.phtml" />
-	</realcontext_index_index>
-
+	<reference name="content">
+		<realcontext_index_index>
+			<label>Curated Shop</label>
+			<block type="realcontext/recommendations" name="recommendations" output="toHtml" template="realcontext/recommendations.phtml" />
+		</realcontext_index_index>
+	</reference>
 </layout>

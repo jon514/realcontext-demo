@@ -4,15 +4,27 @@
 <?php 
 
 $products = $this->getRecommendations();
+$_helper = Mage::helper('catalog/output');
 
 foreach($products as $product_placeholder) {
-	$product = Mage::getModel('catalog/product')->load($product_placeholder->getId())
+	$_product = Mage::getModel('catalog/product')->load($product_placeholder->getId())
 ?>
 
-	<li>
-		<div><?php echo $product->getName()?></div>
-		<div><img src="<?php echo $product->getImageUrl()?>" /></div>
-	</li>
+        <ul class="products-grid">
+
+            <li class="item">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>" class="product-image"><img src="<?php echo Mage::helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $_product->getName(); ?>" /></a>
+                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php $_product->getName() ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                <?php echo $this->getPriceHtml($_product, true) ?>
+                <div class="actions">
+                    <?php if($_product->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                </div>
+            </li>
+        </ul>
 
 <?php } ?>
 

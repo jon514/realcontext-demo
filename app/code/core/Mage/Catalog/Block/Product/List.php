@@ -48,6 +48,20 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
      */
     protected $_productCollection;
 
+	public function getRecommendations(){
+		$id = rand(0,1);
+		if($id == 1){
+			return Mage::getModel('catalog/product')
+			->getCollection()
+			->addFieldToFilter('entity_id', array('in' => array('83', '98', '103')));
+		}
+		else {
+			return Mage::getModel('catalog/product')
+			->getCollection()
+			->addFieldToFilter('entity_id', array('in' => array('123', '120', '103')));
+		}
+	}
+    
     /**
      * Retrieve loaded category collection
      *

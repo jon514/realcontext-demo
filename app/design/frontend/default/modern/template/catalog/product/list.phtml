@@ -35,7 +35,40 @@
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
 ?>
-<div class="category-products"><?php echo $this->getChildHtml('recommendations') ?></div>
+
+<div class="category-products">You're Curated Shop</div>
+<divclass="category-products">
+<ul>
+
+<?php 
+
+$products = $this->getRecommendations();
+$_helper = Mage::helper('catalog/output');
+
+foreach($products as $product_placeholder) {
+	$_product = Mage::getModel('catalog/product')->load($product_placeholder->getId())
+?>
+
+        <ul class="products-grid">
+
+            <li class="item">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_product->getName() ?>" class="product-image"><img src="<?php echo Mage::helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $_product->getName(); ?>" /></a>
+                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php $_product->getName() ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                <?php echo $this->getPriceHtml($_product, true) ?>
+                <div class="actions">
+                    <?php if($_product->isSaleable()): ?>
+                        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                </div>
+            </li>
+        </ul>
+
+<?php } ?>
+
+</ul>
+</div>
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
